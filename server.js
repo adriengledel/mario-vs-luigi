@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const MongoClient = require("mongodb").MongoClient;
 const objectId = require('mongodb').ObjectID;
-const url = "mongodb://localhost/jeuMultijoueur";
+const url = "mongodb+srv://Adrien:qXxGbspNrC9H9WX@mario-vs-luigi-database-nmfoh.mongodb.net/test?retryWrites=true";
 const dbName = "jeuMultijoueur";
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
