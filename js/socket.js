@@ -1,7 +1,7 @@
 (function(window, io){
     window.addEventListener('DOMContentLoaded', function(){
         console.log('socket connecté client');
-        var socket  = io('http://localhost:8080/');
+        var socket  = io('https://gentle-scrubland-49932.herokuapp.com/');
        $('form').on('submit', function(e){
             e.preventDefault();
             var id = document.getElementById(nb).id;
