@@ -1,0 +1,17 @@
+.container {
+    margin: 0 auto;
+    width: 800px !important;
+    height: 700px;
+    position: relative;
+    background-image: url(/image/acceuil.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+form{
+    width: 200px;
+    margin: auto;
+    color: white;
+    padding-top: 250px;
+}
+

@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(rel='stylesheet' type='text/css' href='css/matchmaking.css')
+        title Choix du joueur
+        script(src='/socket.io/socket.io.js')
+        script(src='js/socket.js')
+    body
+        .container
+            h1#joueur1 #{pseudo}
+            h1#joueur2
+            h2 en attente d'un 2ème Joueur...
+            #circle-border
+                #circle-core
+            img#mario(src='image/mariomenu.png' alt='')
+            img#luigi(src='image/luigimenu.png' alt='')
+            form(action='http://localhost:8080/valid' method='POST')
+                input.form-control(type='submit' name='ok')

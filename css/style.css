@@ -1,0 +1,43 @@
+#player {
+    position: absolute;
+    background-color: blue;
+    overflow: hidden;
+}
+
+#player2 {
+    position: absolute;
+    background-color: blue;
+    overflow: hidden;
+}
+
+#luigi {
+    position: relative;
+    width: 229px;
+    height: 60px;
+    top:-3px;
+}
+
+img {
+    width: 800px;
+    height: 750px;
+}
+
+.container {
+    margin: 0 auto;
+    width: 800px;
+    position: relative;
+}
+
+#mario {
+    position: relative;
+    width: 229px;
+    height: 60px;
+    top:-3px;
+}
+
+#piece{
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top:0px;
+}
