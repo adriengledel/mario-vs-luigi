@@ -1,7 +1,7 @@
 (function(window, io){
     window.addEventListener('DOMContentLoaded', function(){
         console.log('socket connecté client');
-        var socket  = io('https://gentle-scrubland-49932.herokuapp.com/');
+        var socket  = io('https://mario-vs-luigi.herokuapp.com/');
        $('form').on('submit', function(e){
             e.preventDefault();
             var id = document.getElementById(nb).id;
