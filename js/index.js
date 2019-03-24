@@ -60,7 +60,7 @@ $(document).ready(function () {
     var bloc5 = {
         height: document.getElementById("bloc5").style.height = "50px",
         width: document.getElementById("bloc5").style.width = "402px",
-        top: document.getElementById("bloc5").style.top = "292px",
+        top: document.getElementById("bloc5").style.top = "290px",
         left: document.getElementById("bloc5").style.left = "197px"
     }
     var bloc6 = {
