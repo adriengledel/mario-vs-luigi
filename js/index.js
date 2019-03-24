@@ -1036,7 +1036,7 @@ var chrono=setInterval(function (){
      min=Math.floor(tmp/600);
      sec=Math.floor(tmp/10);
      tmp--;
-     $('.timer').text(sec);
+    
     }
      
 },100);

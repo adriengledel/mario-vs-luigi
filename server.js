@@ -185,6 +185,26 @@ io.on('connection', function (socket) {
       image: "image/luigi.png"
     }
 
+    var sec=5;
+    var tmp=sec*10;
+    var finChrono = false;
+    var min;
+    var chrono=setInterval(function (){
+        if(sec<=0){
+       
+        clearInterval(chrono);
+        finChrono =true;
+        }
+      min=Math.floor(tmp/600);
+      sec=Math.floor(tmp/10);
+      tmp--;
+      socket.emit('chrono', sec);
+      socket.broadcast.emit('chrono', sec);
+      
+      
+     
+    },100);
+
   }
 
 

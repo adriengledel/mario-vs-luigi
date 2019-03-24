@@ -85,6 +85,11 @@
             
         });
 
+        socket.on('chrono', function(data){
+            
+            $('.timer').text(data);
+        });
+
     });
 
 })(window, io);
