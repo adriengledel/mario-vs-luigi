@@ -258,7 +258,7 @@ io.on('connection', function (socket) {
       let score = {
         player1 : {
           pseudo : joueurConnecte[joueur1].pseudo,
-          nbPieces : joueurConnecte[ojoueur].nbPieces
+          nbPieces : joueurConnecte[joueur1].nbPieces
         },
         player2 : {
           pseudo : joueurConnecte[joueur2].pseudo,
