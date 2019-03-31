@@ -1,6 +1,5 @@
 const express = require('express');
 const session = require('express-session');
-/* const MongoStore = require ( ' connect-mongo ' ) ( session ) ; */
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const app = express();
@@ -18,7 +17,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(session({
   secret: '1234',
-/*   store: new MongoStore(options), */
   saveUninitialized: true,
   resave: true
 }));
@@ -39,7 +37,7 @@ app.get('/', function (req, res) {
     });
   } */
 });
-var joueurConnecte = [];
+
 
 
 
@@ -104,7 +102,7 @@ app.post('/creation-compte-finalisation', function (req, res) {
     db.collection("utilisateurs").find({pseudo:req.body.pseudo}).toArray(function(err, documents){
         console.log(documents.length);
         if(documents.length === 1){
-          res.render('creation-compte', {message:'Ce Pseudo existe déjà fais pas chier change de Pseudo !!!!'});
+          res.render('creation-compte', {message:'Ce Pseudo existe déjà !'});
         }
         else{
           db.collection("utilisateurs").insertOne(utilisateur, function (err) {
@@ -140,20 +138,42 @@ let player2 = {
               /____  >____/ \___  >__|_ \\___  >__| /\ |__|\____/ 
                 \/           \/     \/    \/     \/            
               ****************************************************/
-io.on('connection', function (socket) {
-  setInterval(function(){
 
-    
-  },1000);
+let count = 0;
+let nbId = 0;
+let joueur1;
+let joueur2;
+var joueurConnecte = [];
+
+io.on('connection', function (socket) {
+ 
+  if(joueur1 === ''){
+    joueur1 = socket.id;
+  }
+  else{
+    joueur2 = socket.id;
+  }
+
+  joueurConnecte[socket.id] = {
+    id : socket.id,
+    perso : {...player1},
+    pseudo : app.locals['identifiant'+nbId],
+    nbPieces : 0
+  }
+
+  nbId++;
+  if(nbId === 2){
+    nbId = 0;
+  }
+
 
   if (!joueurConnecte.includes(socket.id)) {
-    joueurConnecte.push(socket.id);
-    console.log(player1);
     socket.emit('creation', {
       id: app.locals['identifiant0'],
       player1,
       player2
     });
+
     player1.left = "450px";
     player1.scale = "scaleX(-1)";
     player1.image = "image/luigi.png";
@@ -163,7 +183,7 @@ io.on('connection', function (socket) {
 
   }
 
-  if (joueurConnecte.length === 2) {
+  if (Object.keys(joueurConnecte.length) === 2) {
     socket.emit('matchmakingOk', {
       display: "none",
       id: app.locals['identifiant0'],
@@ -213,18 +233,60 @@ io.on('connection', function (socket) {
       data: message
     });
   });
+
+
+
   socket.on('emitPiece', function (message) {
-    console.log(app.locals)
+
+    count++;
+    joueurConnecte[socket.id].nbPieces++;
+
     socket['piece'+app.locals.identifiant] = message.piece;
-    console.log(socket);
+ 
     socket.broadcast.emit('displayPiece', {
-      data: message
+      message,
+      player1 : joueurConnecte[joueur1],
+      player2 : joueurConnecte[joueur2]
     });
+
+    socket.emit('displayPiece',{
+      message,
+      player1 : joueurConnecte[joueur1],
+      player2 : joueurConnecte[joueur2]
+    });
+
+    if(count === 165){
+      
+      let score = {
+        player1 : {
+          pseudo : joueurConnecte[joueur1].pseudo,
+          nbPieces : joueurConnecte[ojoueur].nbPieces
+        },
+        player2 : {
+          pseudo : joueurConnecte[joueur2].pseudo,
+          nbPieces : joueurConnecte[joueur2].nbPieces
+        }
+      }
+      
+      MongoClient.connect(url, {
+        useNewUrlParser: true
+      }, function (error, client) {
+        let db = client.db(dbName);
+        console.log('dans db',score)
+        db.collection("score").insertOne(score);
+      });
+      count = 0;
+
+        socket.emit('finDePartie', score);
+        socket.broadcast.emit('finDePartie', score);
+
+    }
+
+
   });
 
   socket.on('disconnect', function (log) {
-    console.log(socket.id);
-    console.log('an user disconnected');
+    count = 0;
     if (joueurConnecte.findIndex(joueurConnecte => joueurConnecte === socket.id + "") === 1) {
       player1 = {
         left: "450px",
@@ -249,8 +311,10 @@ io.on('connection', function (socket) {
       }
     }
 
-    joueurConnecte.pop();
-    console.log('nb de joueur' + joueurConnecte.length);
+    delete joueurConnecte[socket.id];
+    joueur1 = "";
+    joueur2 = "";
+    console.log('deconnection', joueurConnecte);
   });
 });
 app.use(function(req, res){

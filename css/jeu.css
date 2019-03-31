@@ -1,3 +1,9 @@
+
+body{
+  background: linear-gradient(to right, rgba(255,0,4,1) 0%,rgba(201,201,201,1) 48%,rgba(22,147,20,1) 100%);
+}
+
+
 #player1 {
             
     position: absolute;
@@ -21,6 +27,15 @@ img {
 }
 
 .container {
+    display : flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+    width: 1000px;
+    position: relative;
+}
+
+#container-game{
     margin: 0 auto;
     width: 800px;
     position: relative;
@@ -115,4 +130,87 @@ img {
   left: 347px;
   top: 274px;
   color: white;
+}
+
+#findepartie {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  display : none;
+  width : 300px;
+  height: 400px;
+  background: linear-gradient(to right, rgba(255,0,4,1) 0%,rgba(201,201,201,1) 48%,rgba(22,147,20,1) 100%);
+  position: absolute;
+  top: 100px;
+  left: 250px;
+  border-radius: 5Px;
+
+}
+
+.img-avatar{
+  width: 70px;
+  height: 120px;
+}
+
+#imageWinner img{
+  width: 150px;
+  height: 170px;
+}
+
+#score {
+  border: 1px solid black;
+  padding: 5px 10px;
+  text-align: center;
+  width: 200px;
+  border-radius: 5px;
+  background-color: red;
+  cursor: pointer;
+}
+
+#score a {
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+}
+
+#nameWinner {
+  font-size: 30px;
+  white-space: nowrap;
+}
+
+#avatar1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#avatar2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#name1{
+  font-size: 30px;
+}
+#name2{
+  font-size: 30px;
+
+}
+
+
+
+#compteur1{
+  width: 70px;
+  height: 70px;
+  font-size: 60px;
+  text-align: center;
+
+}
+
+#compteur2{
+  width: 70px;
+  height: 70px;
+  font-size: 60px;
+  text-align: center;
+
 }

@@ -79,8 +79,11 @@
 
         socket.on('displayPiece', function(data){
             console.log(data);
-            document.getElementById("masque-piece" + data.data.display).style.display = "none";
-            $('#compteur-piece-adversaire').html(data.data.piece);
+            document.getElementById("masque-piece" + data.message.display).style.display = "none";
+            $('#name1').text(data.player1.pseudo);
+            $('#name2').text(data.player2.pseudo);
+            $('#compteur1').text(data.player1.nbPieces);
+            $('#compteur2').text(data.player2.nbPieces);
 
             
         });
@@ -88,6 +91,20 @@
         socket.on('chrono', function(data){
             
             $('.timer').text(data);
+        });
+
+        socket.on('finDePartie', function(data){
+            console.log('finPARTIE', data);
+            $('#findepartie').css({display:'flex'});
+        if(data.player1.nbPieces > data.player2.nbPieces){
+            $('#nameWinner').text('The winner is '+data.player1.pseudo+' !');
+            $('#imageWinner').append('<img src="image/winnermario.png"/>');
+        }
+        else{
+            $('#nameWinner').text('The winner is '+data.player2.pseudo+' !');
+            $('#imageWinner').append('<img src="image/luigiwinner.png"/>');
+        }
+            
         });
 
     });

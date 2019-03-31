@@ -9,26 +9,37 @@ head
   script(src='js/index.js')
   script(src='/socket.io/socket.io.js')
   script(src='js/socket.js')
-#container.container
-  img#image-acceuil(src='image/acceuil.png' alt='')
-  h2 en attente d'un 2ème Joueur...
-    #circle-border
-        #circle-core
-  img#map(src='image/mapfinal.png' alt='')
-  #player1 
-    p #{pseudo}
-    img#mario(src='' alt='')
-  #player2
-    img#luigi(src='' alt='')
-  #bloc1(style='width: 300px;height: 50px;position: absolute;top: 448px;left: 400px;')
-  #bloc2(style='width: 300px;height: 50px;position: absolute;top: 448px;left: -90px;')
-  #bloc3(style='width: 300px;height: 50px;position: absolute;top: 448px;left: 400px;')
-  #bloc4(style='width: 300px;height: 50px;position: absolute;top: 448px;left: 400px;')
-  #bloc5(style='width: 300px;height: 50px;position: absolute;top: 448px;left: 400px;')
-  #bloc6(style='width: 300px;height: 50px;position: absolute;top: 448px;left: 400px;')
-  #bloc7(style='width: 300px;height: 50px;position: absolute;top: 448px;left: 400px;')
-  #divpiece
-  #compteur-piece 
-    p Moi
-  #compteur-piece-adversaire
-  span.timer
+.container
+  #avatar1
+    #name1
+    img.img-avatar(src="./image/mariomenu.png")
+    #compteur1
+  #container-game
+    img#image-acceuil(src='image/acceuil.png' alt='')
+    h2 en attente d'un 2ème Joueur...
+      #circle-border
+          #circle-core
+    img#map(src='image/mapfinal.png' alt='')
+    #player1 
+      p #{pseudo}
+      img#mario(src='' alt='')
+    #player2
+      img#luigi(src='' alt='')
+    #bloc1(style='width: 300px;height: 50px;background: red;position: absolute;top: 448px;left: 400px;')
+    #bloc2(style='width: 300px;height: 50px;background: red;position: absolute;top: 448px;left: -90px;')
+    #bloc3(style='width: 300px;height: 50px;background: red;position: absolute;top: 448px;left: 400px;')
+    #bloc4(style='width: 300px;height: 50px;background: red;position: absolute;top: 448px;left: 400px;')
+    #bloc5(style='width: 300px;height: 50px;background: red;position: absolute;top: 448px;left: 400px;')
+    #bloc6(style='width: 300px;height: 50px;background: red;position: absolute;top: 448px;left: 400px;')
+    #bloc7(style='width: 300px;height: 50px;background: red;position: absolute;top: 448px;left: 400px;')
+    #divpiece
+    span.timer
+    #findepartie
+      #nameWinner
+      #imageWinner
+      #score  
+        a(href="#") score
+  #avatar2
+    #name2
+    img.img-avatar(src="./image/luigimenu.png")
+    #compteur2
