@@ -4,8 +4,20 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
-        link(rel='stylesheet' type='text/css' href='css/matchmaking.css')
+        link(rel='stylesheet' type='text/css' href='css/score.css')
         title Choix du joueur
     body
         .container
             img#score(src='image/score.png' alt='')
+            #tableau
+                table 
+                    each val in documents  
+                        tr
+                            td
+                                img.perso(src='image/mariomenu.png')
+                            td.pseudo= val.player1.pseudo
+                            td.piece= val.player1.nbPieces
+                            td.piece= val.player2.nbPieces
+                            td.pseudo= val.player2.pseudo
+                            td.last
+                                img.perso(src='image/luigimenu.png')

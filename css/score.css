@@ -1,0 +1,49 @@
+
+.container {
+  margin: 0 auto;
+  width: 800px !important;
+  height: 700px;
+  position: relative;
+}
+
+img {
+width: 800px;
+height: 700px;
+}
+
+#tableau{
+width : 400px;
+height: 500px;
+background-color: white;
+margin: auto;
+position: absolute;
+top : 70px;
+left : 200px;
+border-radius : 5px;
+}
+
+.perso{
+width: 20px;
+height: 30px;
+}
+
+table {
+width: 100%;
+font-weight: bold;
+text-align: center;
+}
+
+.pseudo{
+font-size: 30px;
+width : 20%;
+}
+
+.piece{
+font-size: 45px;
+width : 15%;
+
+}
+
+.last {
+text-align: right;
+}

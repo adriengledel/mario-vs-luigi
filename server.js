@@ -87,6 +87,16 @@ app.post('/MarioVsLuigi', function (req, res) {
 });
 
 
+app.get('/score', function (req, res) {
+  MongoClient.connect(url, {
+    useNewUrlParser: true}, function (error, client) {
+    let db = client.db(dbName);
+    db.collection("score").find().toArray(function(err, documents){
+    res.render('score', {documents});
+    });
+  });
+});
+
 app.get('/creation-compte', function (req, res) {
   res.render('creation-compte');
 });
