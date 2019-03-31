@@ -91,7 +91,7 @@ app.get('/score', function (req, res) {
   MongoClient.connect(url, {
     useNewUrlParser: true}, function (error, client) {
     let db = client.db(dbName);
-    db.collection("score").find().toArray(function(err, documents){
+    db.collection("score").find().limit(9).toArray(function(err, documents){
     res.render('score', {documents});
     });
   });

@@ -47,3 +47,22 @@ width : 15%;
 .last {
 text-align: right;
 }
+
+#acceuil{
+position: absolute;
+top: 10px;
+left: 357px;
+width: 70px;
+height: 30px;
+background-color: white;
+border-radius: 5px;
+cursor: pointer;
+text-align: center;
+padding-top: 8px;
+}
+
+#acceuil a {
+text-decoration: none;
+color: black;
+font-weight: bold;
+}
