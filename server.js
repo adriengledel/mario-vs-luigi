@@ -141,7 +141,7 @@ let player2 = {
 
 let count = 0;
 let nbId = 0;
-let joueur1;
+let joueur1="";
 let joueur2;
 var joueurConnecte = [];
 
@@ -240,8 +240,6 @@ io.on('connection', function (socket) {
 
     count++;
     joueurConnecte[socket.id].nbPieces++;
-
-    socket['piece'+app.locals.identifiant] = message.piece;
  
     socket.broadcast.emit('displayPiece', {
       message,
