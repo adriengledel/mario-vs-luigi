@@ -183,7 +183,7 @@ io.on('connection', function (socket) {
 
   }
 
-  if (Object.keys(joueurConnecte.length) === 2) {
+  if (Object.keys(joueurConnecte).length === 2) {
     socket.emit('matchmakingOk', {
       display: "none",
       id: app.locals['identifiant0'],
