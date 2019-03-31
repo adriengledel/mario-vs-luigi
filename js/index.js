@@ -571,7 +571,7 @@ $(document).ready(function () {
         }
 
         var x = 0;
-        var y = 380;
+        var y = 385;
         for (var i = 0; i < 40; i++) {
             if (x > 760) {
                 var x = 0;
@@ -636,7 +636,7 @@ $(document).ready(function () {
         }
 
         var x = 100;
-        var y = 330;
+        var y = 340;
         for (var i = 0; i < 15; i++) {
 
             var left = x + "px";
@@ -683,12 +683,12 @@ $(document).ready(function () {
             x += 40;
         }
 
-        var x = 500;
+        var x = 505;
         var y = 530;
         for (var i = 0; i < 10; i++) {
-            if (x > 660) {
+            if (x > 665) {
                 y = 580;
-                x = 500;
+                x = 505;
             }
             var left = x + "px";
             var top = y + "px";
